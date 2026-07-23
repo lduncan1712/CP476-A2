@@ -7,7 +7,7 @@ header("Content-Type: application/json");
 try {
 
     //Connect To Database
-    $pdo = new PDO("mysql:host=mysql;dbname=college", "___", "____");
+    $pdo = new PDO("mysql:host=" . getenv('DB_HOST') . ";dbname=" . getenv('DB_NAME'), getenv('DB_USER'), getenv('DB_PASS'));
 
     //Query Students
     $stmt = $pdo->query("SELECT * FROM students");

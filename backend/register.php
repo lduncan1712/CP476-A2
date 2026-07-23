@@ -3,21 +3,27 @@
 //Control Headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Methods: POST");
 
 //Body Fields (Must Be Included)
-$firstName = trim($_POST['firstName'] ?? '');
-$lastName  = trim($_POST['lastName']  ?? '');
-$email     = trim($_POST['email']     ?? '');
-$program   = trim($_POST['program']   ?? '');
+$data = json_decode(file_get_contents('php://input'), true) ?? [];
+
+$firstName = trim($data['firstName'] ?? '');
+$lastName  = trim($data['lastName']  ?? '');
+$email     = trim($data['email']     ?? '');
+$program   = trim($data['program']   ?? '');
 
 if (!($firstName && $lastName && $email && $program)){
     echo json_encode(["status" => "error"]);
     exit;
 }
 
+//TODO: Add Email @ Symbol Check
+
 //Execute Database Query
 try{
-    $pdo = new PDO("mysql:host=____;dbname=college;", "____", "____");
+    $pdo = new PDO("mysql:host=" . getenv('DB_HOST') . ";dbname=" . getenv('DB_NAME'), getenv('DB_USER'), getenv('DB_PASS'));
 
     $stmt = $pdo->prepare("
         INSERT INTO students(firstName, lastName, email, program)
