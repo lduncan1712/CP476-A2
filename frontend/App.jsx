@@ -1,6 +1,20 @@
 const API_BASE = "http://localhost:8001";
 
 function App() {
+    return (
+        <div>
+            <StudentForm />
+        </div>
+    );
+}
+
+ReactDOM.createRoot(
+    document.getElementById("root")
+).render(<App />);
+/*
+const API_BASE = "http://localhost:8001";
+
+function App() {
     const [result, setResult] = React.useState(null);
 
     async function getStudents() {
@@ -33,3 +47,4 @@ function App() {
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+*/
