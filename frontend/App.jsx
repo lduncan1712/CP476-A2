@@ -1,9 +1,53 @@
 const API_BASE = "http://localhost:8001";
 
 function App() {
+
+    const [result, setResult] = React.useState(null);
+
+    async function getStudents() {
+
+        const response = await fetch(
+            API_BASE + "/students.php"
+        );
+
+        setResult(await response.json());
+    }
+
+    async function registerStudent(formData) {
+
+        const response = await fetch(
+            API_BASE + "/register.php",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            }
+        );
+
+        const data = await response.json();
+
+        setResult(data);
+    }
+
     return (
         <div>
-            <StudentForm />
+
+            <StudentForm
+                registerStudent={registerStudent}
+            />
+
+            <button onClick={getStudents}>
+                Get Students
+            </button>
+
+            {result && (
+                <h3>
+                    {JSON.stringify(result)}
+                </h3>
+            )}
+
         </div>
     );
 }
@@ -11,6 +55,7 @@ function App() {
 ReactDOM.createRoot(
     document.getElementById("root")
 ).render(<App />);
+
 /*
 const API_BASE = "http://localhost:8001";
 
