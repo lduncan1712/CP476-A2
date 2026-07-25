@@ -1,4 +1,4 @@
--- DATABASE NAME: college
+CREATE DATABASE college;
 USE college;
 
 
