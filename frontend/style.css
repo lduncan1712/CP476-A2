@@ -1,0 +1,80 @@
+body {
+    font-family: system-ui;
+    background: #f5f7fa;
+    color: #333;
+    padding: 2rem 1rem;
+}
+
+#root {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background: #1c2733;
+    color: #fff;
+}
+
+th {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    font-size: 0.85rem;
+}
+
+td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e8ecf0;
+    font-size: 0.95rem;
+}
+
+tbody tr:hover {
+    background: #eaf1fb;
+    cursor: default;
+}
+
+@media (max-width: 600px) {
+    table, thead, tbody, tr {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.6rem 1rem;
+        border-bottom: 1px solid #e8ecf0;
+    }
+
+    td::before {
+        font-weight: 600;
+        color: #555;
+        margin-right: 1rem;
+        white-space: nowrap;
+    }
+
+
+
+    tr {
+        margin-bottom: 1rem;
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        background: #fff;
+    }
+
+
+}
