@@ -124,6 +124,16 @@ tbody tr:hover {
 }
 
 @media (max-width: 600px) {
+    .form-card {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1.5rem;
+    }
+
+    .form-card input {
+        width: 100%;
+        box-sizing: border-box;
+    }
     table, thead, tbody, tr {
         display: block;
     }
