@@ -93,7 +93,7 @@ function StudentForm({registerStudent}) {
 
                 {errors.lastName && (
                     <p className="error">
-                        {errors.lastname}
+                        {errors.lastName}
                     </p>
                 )}
 
