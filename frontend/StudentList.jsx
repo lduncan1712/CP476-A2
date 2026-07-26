@@ -19,10 +19,10 @@ function StudentList() {
                 <tbody>
                 {students.map((student) => (
                     <tr key={student.studentID}>
-                        <td data-label="Student ID">{student.studentID}</td>
-                        <td data-label="First Name">{student.firstName}</td>
-                        <td data-label="Last Name">{student.lastName}</td>
-                        <td data-label="Program">{student.program}</td>
+                        <td>{student.studentID}</td>
+                        <td>{student.firstName}</td>
+                        <td>{student.lastName}</td>
+                        <td>{student.program}</td>
                     </tr>
                 ))}
                 </tbody>
