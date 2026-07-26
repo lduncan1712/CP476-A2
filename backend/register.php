@@ -21,6 +21,10 @@ if (!($firstName && $lastName && $email && $program)){
 
 //TODO: Add Email @ Symbol Check
 
+if (!str_contains($email, "@")) {
+
+}
+
 //Execute Database Query
 try{
     $pdo = new PDO("mysql:host=" . getenv('DB_HOST') . ";dbname=" . getenv('DB_NAME'), getenv('DB_USER'), getenv('DB_PASS'));
